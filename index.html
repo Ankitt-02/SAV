@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Visualize sorting algorithms step by step. Understand how different sorting algorithms work with this interactive visualizer.">
+    <title>Sorting Algorithm Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sorting Algorithm Visualizer</h1>
+            <p class="subtitle">Step through sorting algorithms to understand how they work</p>
+        </header>
+        
+        <div class="card">
+            <div class="controls">
+                <div class="control-group">
+                    <label for="algorithm">Algorithm:</label>
+                    <select id="algorithm">
+                        <option value="bubble">Bubble Sort</option>
+                        <option value="selection">Selection Sort</option>
+                        <option value="insertion">Insertion Sort</option>
+                        <option value="merge">Merge Sort</option>
+                        <option value="quick">Quick Sort</option>
+                        <option value="heap">Heap Sort</option>
+                        <option value="shell">Shell Sort</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="size">Array Size:</label>
+                    <input type="range" id="size" min="5" max="20" value="10">
+                    <span id="size-value">10</span>
+                </div>
+            </div>
+            
+            <div class="algorithm-info" id="algorithm-info">
+                <h3>Bubble Sort</h3>
+                <p>Repeatedly steps through the list, compares adjacent elements, and swaps them if they're in the wrong order.</p>
+                <div class="complexity">
+                    <span>Time Complexity: O(n²)</span>
+                    <span>Space Complexity: O(1)</span>
+                </div>
+            </div>
+            
+            <div class="main-content">
+                <div class="visualization-section">
+                    <div class="visualization-container">
+                        <div id="bars-container"></div>
+                    </div>
+                    
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="color-box unsorted"></div>
+                            <span>Unsorted</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="color-box comparing"></div>
+                            <span>Comparing</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="color-box sorted"></div>
+                            <span>Sorted</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="color-box pivot"></div>
+                            <span>Pivot</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pseudocode-container" id="pseudocode-container">
+                    <h3>Pseudocode</h3>
+                    <pre id="pseudocode"></pre>
+                </div>
+            </div>
+            
+            <div class="current-operation" id="current-operation">
+                <i class="fas fa-info-circle"></i>
+                <span>Select an algorithm and click "Generate Steps" to begin.</span>
+            </div>
+            
+            <div class="button-container">
+                <button id="generate" class="btn-primary">
+                    <i class="fas fa-random"></i> New Array
+                </button>
+                <button id="start" class="btn-success">
+                    <i class="fas fa-play"></i> Generate Steps
+                </button>
+                <button id="reset" class="btn-danger">
+                    <i class="fas fa-undo"></i> Reset
+                </button>
+            </div>
+            
+            <div class="navigation-buttons">
+                <button id="prev" class="btn-nav" disabled>
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <button id="next" class="btn-nav" disabled>
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>Comparisons: </span>
+                    <span id="comparisons">0</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-random"></i>
+                    <span>Swaps: </span>
+                    <span id="swaps">0</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-step-forward"></i>
+                    <span>Step: </span>
+                    <span id="current-step">0</span>/<span id="total-steps">0</span>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Learn how sorting algorithms work by stepping through them one by one.</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
